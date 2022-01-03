@@ -1,8 +1,6 @@
 //Display title screen and game screen
 var scene = 0;
 
-//Check what button is clicked
-
 //Snake variable
 var s;
 //Scale variable
@@ -16,16 +14,7 @@ function setup() {
   frameRate(10);
   pickLocation();
 }
- // var foodcolour = function(){
- //       if(scene === 0 && 
- //     mouseX<95 &&
- //     mouseX>75 && mouseY<155 &&
- //     mouseY>135)
- //    {
- //      fill(123, 0, 255);
- //      var food;
- //    }
- // }
+
 function pickLocation() {
   var cols = floor(width / scl);
   var rows = floor(height / scl);
@@ -33,14 +22,33 @@ function pickLocation() {
   food.mult(scl);
 
 }
+function foodcolor(){
+  if (scene === 2 &&     
+    mouseX < 95 &&
+    mouseX > 75 &&
+    mouseY < 155 && 
+    mouseY > 135 )
+    {
+      fill(255,0,0)
+    }
+  else if (scene === 2 &&     
+    mouseX < 130 &&
+    mouseX > 110 &&
+    mouseY < 155 && 
+    mouseY > 135 )
+    {
+      fill(123, 0, 255)
+    }
+}
+
 function draw() {
   //Call titlescreen
   titlescreen();
   background(0);
   //draw food
-    fill(225,0,0);
-    rect(food.x, food.y, scl, scl);
-  //}
+  foodcolor ();
+  rect(food.x, food.y, scl, scl);
+  }
 
   if (s.eat(food)) {
     pickLocation();
@@ -56,7 +64,10 @@ function draw() {
   else if (scene === 2) {
     MainMenu();
   }
-}
+  else if (scene === 3)
+    {
+      gameover();
+    }
 
 var mouseClicked = function () {
   if (
@@ -86,15 +97,14 @@ var mouseClicked = function () {
     {
       scene=0;
     }
-
-    // else if
-    // (scene === 2 && 
-    //  mouseX<360 &&
-    //  mouseX>160 && mouseY<300 &&
-    //  mouseY>250)
-    // {
-    //   scene=2;
-    // }
+  else if 
+    (scene === 3 &&
+      mouseX<500 &&
+     mouseX>0 && mouseY<500 &&
+     mouseY>0)
+    {
+      scene=0;
+    }
 };
 
 function keyPressed() {
@@ -108,3 +118,4 @@ function keyPressed() {
     s.dir(-1, 0);
   }
 }
+
