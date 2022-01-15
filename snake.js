@@ -1,6 +1,8 @@
 //Hide text
 document.getElementById("mydiv").style.visibility=
   "hidden";
+document.getElementById("mydiv2").style.visibility=
+  "hidden";
 function Snake() {
   this.x = 0;
   this.y = 0;
@@ -34,6 +36,7 @@ function Snake() {
         this.tail = [];
         this.x = 40;
         this.y = 200;
+        scene = 3; 
       }
     }
   };
