@@ -1,6 +1,7 @@
 var MainMenu = function () {
   background(0, 0, 0);
-  document.getElementById("mydiv").style.visibility =     "visible";
+  document.getElementById("mydiv").style.visibility ="visible";
+  document.getElementById("mydiv2").style.visibility="hidden";
   //white rectangle
   fill(255, 255, 255);
   rect(20, 20, 500, 500);
@@ -31,6 +32,4 @@ var MainMenu = function () {
   textSize(40);
   //back arrow
   text('<==',25,510)
-
-    
   }
